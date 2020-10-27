@@ -34,7 +34,7 @@ class PersonList extends Component {
   render() {
     return (
       <div>
-        <h3>学员列表</h3>
+        <h2>学员列表</h2>
         <div>
           {this.state.persons.map((person) => (
             <div key={person.id} className="person-button">

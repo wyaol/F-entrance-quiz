@@ -33,7 +33,7 @@ class GroupList extends Component {
     return (
       <div>
         <div className="group-title">
-          <h3>分组列表</h3>
+          <h2>分组列表</h2>
           <button align="right" type="submit" onClick={() => this.group()}>
             分组学员
           </button>
@@ -42,7 +42,7 @@ class GroupList extends Component {
           {this.state.groups.map((group) => (
             <div className="group-item" key={group.groupName}>
               <div className="group-name">{group.groupName}</div>
-              <div className="group-person">
+              <div>
                 {group.students.map((student) => (
                   <div className="person-button" key={student.id}>
                     {student.id}: {student.name}
