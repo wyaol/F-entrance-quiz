@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './index.css';
 
 class GroupList extends Component {
   constructor(props) {
@@ -31,19 +32,23 @@ class GroupList extends Component {
   render() {
     return (
       <div>
-        <h3>分组列表</h3>
-        <button type="submit" onClick={() => this.group()}>
-          分组学员
-        </button>
-        <div>
+        <div className="group-title">
+          <h3>分组列表</h3>
+          <button align="right" type="submit" onClick={() => this.group()}>
+            分组学员
+          </button>
+        </div>
+        <div className="group">
           {this.state.groups.map((group) => (
-            <div key={group.groupName}>
-              <div>{group.groupName}</div>
-              {group.students.map((student) => (
-                <div key={student.id}>
-                  {student.id}: {student.name}
-                </div>
-              ))}
+            <div className="group-item" key={group.groupName}>
+              <div className="group-name">{group.groupName}</div>
+              <div className="group-person">
+                {group.students.map((student) => (
+                  <div className="person-button" key={student.id}>
+                    {student.id}: {student.name}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>

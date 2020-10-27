@@ -37,22 +37,27 @@ class PersonList extends Component {
         <h3>学员列表</h3>
         <div>
           {this.state.persons.map((person) => (
-            <div key={person.id}>
-              <div>
-                {person.id}:{person.name}
-              </div>
+            <div key={person.id} className="person-button">
+              {person.id}:{person.name}
             </div>
           ))}
-          <div>
-            {this.state.addPerson && (
-              <input id="add-person" type="text" onBlur={(e) => this.addPerson(e.target.value)} />
-            )}
-            {!this.state.addPerson && (
-              <button type="button" onClick={() => this.setState({ addPerson: true })}>
-                +添加成员
-              </button>
-            )}
-          </div>
+          {this.state.addPerson && (
+            <input
+              className="person-button"
+              id="add-person"
+              type="text"
+              onBlur={(e) => this.addPerson(e.target.value)}
+            />
+          )}
+          {!this.state.addPerson && (
+            <button
+              type="button"
+              onClick={() => this.setState({ addPerson: true })}
+              className="person-button"
+            >
+              +添加成员
+            </button>
+          )}
         </div>
       </div>
     );
