@@ -33,14 +33,14 @@ class GroupList extends Component {
       <div>
         <h3>分组列表</h3>
         <button type="submit" onClick={() => this.group()}>
-          分组
+          分组学员
         </button>
         <div>
           {this.state.groups.map((group) => (
             <div key={group.groupName}>
               <div>{group.groupName}</div>
               {group.students.map((student) => (
-                <div>
+                <div key={student.id}>
                   {student.id}: {student.name}
                 </div>
               ))}

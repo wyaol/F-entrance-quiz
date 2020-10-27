@@ -6,16 +6,30 @@ class PersonList extends Component {
     super(props);
     this.state = {
       persons: [],
+      addPerson: false,
     };
   }
 
   componentDidMount() {
+    this.getPersons();
+  }
+
+  getPersons = () => {
     axios.get('http://127.0.0.1:8080/students').then((response) => {
       this.setState({
         persons: response.data,
       });
     });
-  }
+  };
+
+  addPerson = (name) => {
+    axios.post('http://127.0.0.1:8080/students', { name }).then(() => {
+      this.getPersons();
+      this.setState({
+        addPerson: false,
+      });
+    });
+  };
 
   render() {
     return (
@@ -29,6 +43,16 @@ class PersonList extends Component {
               </div>
             </div>
           ))}
+          <div>
+            {this.state.addPerson && (
+              <input id="add-person" type="text" onBlur={(e) => this.addPerson(e.target.value)} />
+            )}
+            {!this.state.addPerson && (
+              <button type="button" onClick={() => this.setState({ addPerson: true })}>
+                +添加成员
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );
