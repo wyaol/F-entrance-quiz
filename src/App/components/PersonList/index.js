@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class PersonList extends Component {
   constructor(props) {
@@ -9,13 +10,10 @@ class PersonList extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      persons: [
-        {
-          id: 1,
-          name: 'test',
-        },
-      ],
+    axios.get('http://127.0.0.1:8080/students').then((response) => {
+      this.setState({
+        persons: response.data,
+      });
     });
   }
 
