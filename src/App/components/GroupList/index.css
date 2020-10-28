@@ -3,6 +3,7 @@
 }
 
 .group-title button {
+  /* TODO GTB-知识点: 演示可以用_variables里面的变量 */
   background-color: red;
   color: white;
   border: 0;
@@ -23,6 +24,7 @@
   text-align: center;
 }
 
+/* TODO GTB-工程实践: 这个样式在多个文件中使用，应该放在公共文件里面，如果提前了组件就可以放在组件内 */
 .person-button {
   width: 100px;
   height: 40px;

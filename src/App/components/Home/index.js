@@ -7,6 +7,7 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
+        {/* TODO GTB-知识点: + 划分两个组件 */}
         <GroupList />
         <PersonList />
       </div>
